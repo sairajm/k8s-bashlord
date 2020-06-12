@@ -63,11 +63,11 @@ function k8_ops() {
         elif [ "${option3}" = "secrets" ];
         then
             kubectl get secrets
-        elif [ "${option3}" = "contexts"];
+        elif [ "${option3}" = "contexts" ];
         then
             kubectl config get-contexts
         else
-            echo "Error: Unsupported input " ${option3}
+            echo "Error: Unsupported input" ${option3}
             exit
         fi
     elif [ "${option2}" = "current" ];
@@ -75,17 +75,22 @@ function k8_ops() {
         kubectl config current-context
     elif [ "${option2}" = "set" ];
     then
-        option3=${3?Error: Needs to be keyword contexts}
+        option3=${3?Error: Needs to be keyword contexts or name of the context you would like to switch to}
         check_empty $3 ${option3}
 
-        option4=${4?Error: Needs to be namespace to switch to within this context}
-        check_empty $4 ${option4}
+        if [ "${option3}" != "contexts" ];
+        then
+         kubectl config use-context ${option3}
+        else
+            option4=${4?Error: Needs to be namespace to switch to within this context}
+            check_empty $4 ${option4}
 
-        current_context=`kubectl config current-context`
+            current_context=`kubectl config current-context`
 
-        echo "Your current context is" ${current_context}
+            echo "Your current context is" ${current_context}
 
-        kubectl config set-context --current --namespace=${option4}
+            kubectl config set-context --current --namespace=${option4}
+        fi
     else
         option2=${2?Error: Needs to be a cluster name to initialize credentials}
         check_empty $2 ${option2}
@@ -98,8 +103,6 @@ function k8_ops() {
 }
 
 option1=${1?Error: No options provided. For a complete list of options type bash-lord help}
-
-check_empty $1 ${option1}
 
 if [ "${option1}" =  "help" ];
 then

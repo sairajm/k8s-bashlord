@@ -12,3 +12,4 @@ For K8s execute in the following order:
 5. "bash-lord k get pods" displays all pods.
 6. "bash-lord k get secrets" displays all secrets.
 7. "bash-lord k get contexts" displays all available contexts.
+8. "bash-lord k set context-name" switches to a context.
