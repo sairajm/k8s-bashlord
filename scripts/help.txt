@@ -1,0 +1,7 @@
+bash-lord g
+    project
+        get
+            all
+            example
+        set
+            project-name
