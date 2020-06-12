@@ -102,11 +102,30 @@ function k8_ops() {
     fi
 }
 
+function help() {
+    echo "For GCloud basic get and set:
+1. "bash-lord g project get all" will get all projects mapped to your user. Warning: This doesn't have a limit set.
+2. "bash-lord g project get sairajmadhavan" will get all projects that contain sairajmadhavan ie. partial matches are supported.
+3. "bash-lord g project set sairajmadhavan" will set the project to sairajmadhavan if it exists. Do a get before set and provide accurate value.
+
+
+For K8s execute in the following order:
+1. "bash-lord k" to list all clusters in your current Gcloud project
+2. "bash-lord k cluster-name zone" to fetch cluster endpoint and auth data for that cluster and zone.
+3. "bash-lord k current" displays current context
+4. "bash-lord k set contexts namespace" sets context to --current and --namespace to the namespace provided.
+5. "bash-lord k get pods" displays all pods.
+6. "bash-lord k get secrets" displays all secrets.
+7. "bash-lord k get contexts" displays all available contexts.
+8. "bash-lord k set context-name" switches to a context.
+"
+}
+
 option1=${1?Error: No options provided. For a complete list of options type bash-lord help}
 
 if [ "${option1}" =  "help" ];
 then
-    cat help.txt
+    help
     exit
 elif [ "${option1}" = "g" ];
 then
