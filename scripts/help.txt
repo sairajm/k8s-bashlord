@@ -1,7 +1,14 @@
-bash-lord g
-    project
-        get
-            all
-            example
-        set
-            project-name
+For GCloud basic get and set:
+1. "bash-lord g project get all" will get all projects mapped to your user. Warning: This doesn't have a limit set.
+2. "bash-lord g project get sairajmadhavan" will get all projects that contain sairajmadhavan ie. partial matches are supported.
+3. "bash-lord g project set sairajmadhavan" will set the project to sairajmadhavan if it exists. Do a get before set and provide accurate value.
+
+
+For K8s execute in the following order:
+1. "bash-lord k" to list all clusters in your current Gcloud project
+2. "bash-lord k cluster-name zone" to fetch cluster endpoint and auth data for that cluster and zone.
+3. "bash-lord k current" displays current context
+4. "bash-lord k set contexts namespace" sets context to --current and --namespace to the namespace provided.
+5. "bash-lord k get pods" displays all pods.
+6. "bash-lord k get secrets" displays all secrets.
+7. "bash-lord k get contexts" displays all available contexts.
