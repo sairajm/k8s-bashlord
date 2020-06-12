@@ -3,8 +3,8 @@ K8s bash shortcuts for scrubs like me.
 
 To get `bash-lord` working you already need `gcloud` and `kubectl` setup and configured.
 
-[Setting up kubectl on a Mac](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-homebrew-on-macos)
-[Setting up gcloud on a Mac](https://cloud.google.com/sdk/docs/quickstart-macos)
+1. [Setting up kubectl on a Mac](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-homebrew-on-macos)
+2. [Setting up gcloud on a Mac](https://cloud.google.com/sdk/docs/quickstart-macos)
 
 To setup zshrc or bash short cut, add the following to the file:
 
